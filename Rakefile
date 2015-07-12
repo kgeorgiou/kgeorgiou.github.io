@@ -1,1 +1,1 @@
-gem "middleman-deploy"
+require 'middleman-gh-pages'
