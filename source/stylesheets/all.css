@@ -46,7 +46,8 @@ header .face:hover {
 header .social a {
 	outline-style: none;
 	font-size: 1.5em;
-	text-decoration: none
+	text-decoration: none;
+	margin: 0 5px;
 }
 header .social a:link {
 	color: black
