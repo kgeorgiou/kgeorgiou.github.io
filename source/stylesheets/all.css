@@ -3,7 +3,7 @@ body, html {
 	padding: 0;
 }
 body {
-	font-family: 'Lato', 'Roboto', sans-serif;;
+	font-family: 'Lato', 'Roboto', 'Raleway', sans-serif;;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility
 }
@@ -42,6 +42,11 @@ header .face {
 }
 header .face:hover {
 	background-position: 0 -100px
+}
+header h2 a {
+	color: black;
+	border: 0;
+	text-decoration: none;
 }
 header .social a {
 	outline-style: none;
@@ -83,12 +88,18 @@ article h2 a {
 	color: black;
 	border: none;
 }
-
+article h2 a:hover {
+	padding-bottom: 1px;
+	border-bottom: 1px solid black;
+}
 article a {
 	text-decoration: none;
 	color: #0a98e2;
 	padding-bottom: 1px;
 	border-bottom: 1px solid #bce6fc;
+}
+article a:hover {
+	border-bottom: 1px solid #0a98e2;
 }
 article time {
 	color: #bdbdbd;

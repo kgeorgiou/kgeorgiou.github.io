@@ -1,26 +1,29 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8">
-  <!-- Always force latest IE rendering engine or request Chrome Frame -->
   <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Kyriakos Georgiou">
   <meta name="description" content="Software Engineer, Startup Enthusiast, Code Sorcerer, Gamer, 1337">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-  <!-- Use title if it's in the page YAML frontmatter -->
   <title><%= current_page.data.title || "Kyriakos Georgiou" %></title>
   <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
   <%= stylesheet_link_tag "normalize", "all" %>
   <%= javascript_include_tag  "all" %>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body class="<%= page_classes %>">
 
   <div class="container">
     <header>
-      <span class="face"></span>
-      <h2>KYRIAKOS GEORGIOU</h2>
+      <a href="/" class="face"></a>
+      <h2>
+        <a href="/">KYRIAKOS GEORGIOU</a>
+      </h2>
       <div class="social">
         <a href="//www.github.com/kgeorgiou" target="_blank">
           <i class="fa fa-github-square"></i>
@@ -44,12 +47,9 @@
 </body>
 
 <footer>
-  <!-- Fonts -->
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="//fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet" type="text/css">
   <link href="//fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" type="text/css">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,500,700' rel='stylesheet' type='text/css'>
 
-  <!-- Google Analytics -->
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
