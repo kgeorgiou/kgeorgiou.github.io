@@ -1,0 +1,140 @@
+---
+title: 'DP: Down, Right, on a 2D matrix'
+published: true
+date: 2015-08-06
+tags: dp dynamic programming competitive 2d matrix down right
+---
+
+blockquote
+   p
+      strong
+         ' DP 
+      ' stands for 
+      a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank" Dynamic Programming
+      '  if you had high hopes for something different, my sincere apologies.
+
+p
+   ' This blog entry is about a problem that often appears in competitive programming competitions and it demonstrates the ingenuity of Dynamic Programming and can help people who aren't familiar with it, grasp the essence of this technique. 
+
+h3
+   ' Sample problem statement:
+
+p
+   ' Alice is located in the North-West (Top-Left) block of her city, which has the form of a gird of $NxN$ blocks. On each block there is a number of naughty kids. She wishes to reach the South-West (Bottom-Right) block while encountering the least amount of naughty kids as possible. She can only move to blocks South (Down) or East (Right) of her current block. Help Alice minimize the total number of naughty kids she encounters along the way.
+
+blockquote
+   p
+        strong
+           ' TL;DR: 
+        ' On a 2D matrix where every cell has a value, minimize (or maximize) the cost of moving from the top-left cell to the bottom-right cell, while only being able to move down and right.
+
+p
+  ' The above statement is a minimization problem. If the statement was talking about Alice's friends instead of naughty kids we would have a maximization problem and the solution that follows would still work - just by swapping the $min$ function with $max$. 
+
+h3
+   ' Dynamic Programming solution
+
+p
+  |
+   $$
+   Matrix\,of\,costs \\
+   \newcommand\T{\Rule{0pt}{1em}{.3em}}
+   \begin{array}{|c|c|c|}
+   \hline
+     1 \T & 1 & 5 \\\hline
+     2 \T & 1 & 4 \\\hline
+     3 \T & 1 & 1 \\\hline
+   \end{array}
+   $$
+
+p
+   ' Since each cell can only be entered either from above or from the left, the optimal solution for arriving at a given cell is the minimum of the cost of entering from the left and the cost of entering from above. Also we need to take into account the given cell's cost as well. Note that cells on the first row and column can only be accessed from one direction only, thus the optimal cost of arriving at such a cell is its own cost plus the cost of the only possible way of entering it. 
+   strong
+      ' Basically, we are using the solutions of previous subproblems to reach the global solution. That is the essence of Dynamic Programming.
+
+p   
+   ' Above explanation in fancy math notation where $opt(i,j)$ denotes the optimal solution for the cell at row $i$ and column $j$ and $c(i,j)$ denotes its cost value:
+
+p
+  |
+   $$
+   opt(i,j) = \left\{\begin{aligned}
+   &min(opt(i-1,j), opt(i,j-1)) + c(i,j) && i \gt 0,j \gt 0\\
+   &opt(i-1,j) + c(i,j) && i > 0, j = 0\\
+   &opt(i,j-1) + c(i,j) && i = 0, j > 0\\
+   &c(i,j) && i = 0, j = 0
+   \end{aligned}
+   \right.
+   $$
+
+p
+   ' We can transform the above into code that constructs a new 2D matrix that holds the optimal solutions for entering each cell.
+
+= code('java') do
+  |
+   public static int solve(int[][] c, int n) {
+
+      int[][] opt = new int[n][n];
+
+      for (int i = 0; i < n; i++) {
+         for (int j = 0; j < n; j++) {
+            if (i > 0 && j > 0) {
+               opt[i][j] = Math.min(opt[i-1][j], opt[i][j-1]) + c[i][j];
+            } else if (i > 0 && j == 0) {
+               opt[i][j] = opt[i-1][j] + c[i][j];
+            } else if (i == 0 && j > 0) {
+               opt[i][j] = opt[i][j-1] + c[i][j];
+            } else {
+               opt[i][j] = c[i][j];
+            }  
+         }
+      }
+
+      return opt[n-1][n-1];
+   }
+
+p
+   ' Once the nested loops from the code snippet above are finished, the $opt$ matrix will look like the one below.
+
+p
+  |
+   $$
+     Optimal\,solutions\,for\,each\,cell \\
+   \newcommand\T{\Rule{0pt}{1em}{.3em}}
+   \begin{array}{|c|c|c|}
+   \hline
+     1 \T & 2 & 7 \\\hline
+     3 \T & 3 & 7 \\\hline
+     6 \T & 4 & 5 \\\hline
+   \end{array}
+   $$
+
+p
+   ' The optimal solution for reaching the last cell, $opt[n-1][n-1]$, is the global optimal solution of the problem given. 
+
+p
+   ' For the above scenario the global solution is 5 and it can be achieved by following the path demonstrated below.
+
+p
+  |
+   $$
+     Optimal\,path\,on\,original\,matrix \\
+   \newcommand\T{\Rule{0pt}{1em}{.3em}}
+   \begin{array}{|c|c|c|}
+   \hline
+     \underline{1} \T & \underline{1} & 5 \\\hline
+     2 \T & \underline{1} & 4 \\\hline
+     3 \T & \underline{1} & \underline{1} \\\hline
+   \end{array}
+   $$
+
+h3
+   ' Remarks
+
+p
+   ' The first time I encountered the problem above, I had no idea how Dynamic Programming works per se, but I knew about graphs and an awesome guy called Dijkstra whose famous 
+    a href="//en.wikipedia.org/wiki/Dijkstra%27s_algorithm" target="_blank" algorithm
+   '  helped me come up with a solution. It's nice to have multiple techniques to solve a specific problem but DP is one of the strongest weapons in a competitive programmer's arsenal.
+
+
+= partial "mathjax"

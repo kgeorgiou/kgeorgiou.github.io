@@ -1,0 +1,131 @@
+body, html {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: 'Lato', 'Roboto', 'Raleway', sans-serif;;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility
+}
+.container {
+	max-width: 590px;
+	margin: 0 auto;
+	position: relative;
+	margin-top: 44px;
+	margin-bottom: 2em
+}
+@media (max-width: 40em) {
+	.container {
+		padding: 0 1.5em 0 1.5em;
+	}
+}
+header {
+	text-align: center
+}
+header .face {
+	outline: 0;
+	border: 0;
+	padding-bottom: 0;
+	display: block;
+	width: 100px;
+	height: 100px;
+	background-image: url(/images/facekg.png);
+	background-position: 0 0;
+	background-size: cover;
+	-webkit-border-radius: 120px;
+	-moz-border-radius: 120px;
+	border-radius: 120px;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	margin: 0 auto
+}
+header .face:hover {
+	background-position: 0 -100px
+}
+header h2 a {
+	color: black;
+	border: 0;
+	text-decoration: none;
+}
+header .social a {
+	outline-style: none;
+	font-size: 1.5em;
+	text-decoration: none;
+	margin: 0 2px;
+}
+header .social a:link {
+	color: black
+}
+header .social a:visited {
+	color: black
+}
+header .social a:hover {
+	color: #5d5d5d
+}
+header p.chasm {
+	text-align: center;
+	display: block;
+	width: 66px;
+	position: relative;
+	margin: 3em auto;
+	height: 0;
+	border-bottom: 2px solid #dedede
+}
+h1,h2 {
+	font-weight: 900;
+}
+article h1 {
+	margin: 0;
+	color: black
+}
+article h2 {
+	margin: 1em 0 5px 0;
+	color: black;
+	padding: 0;
+}
+article h2 a {
+	color: black;
+	border: none;
+}
+article h2 a:hover {
+	padding-bottom: 1px;
+	border-bottom: 1px solid black;
+}
+article a {
+	text-decoration: none;
+	color: #0a98e2;
+	padding-bottom: 1px;
+	border-bottom: 1px solid #bce6fc;
+}
+article a:hover {
+	border-bottom: 1px solid #0a98e2;
+}
+article time {
+	color: #bdbdbd;
+	font-weight: 800;
+	margin-top: 50px
+}
+
+p {
+	line-height: 1.4em;
+}
+
+h2 {
+	line-height: 1.25em;
+}
+
+strong {
+	font-weight: 900;
+}
+
+
+blockquote {
+  padding-left: 10px;
+  border-left: 4px solid #ccc;
+  color: #767676;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  font-style: italic;
+  margin: 0;
+}
