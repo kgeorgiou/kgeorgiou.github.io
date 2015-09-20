@@ -1,3 +1,6 @@
+html {
+	overflow-y: scroll;
+}
 body, html {
 	margin: 0;
 	padding: 0;
@@ -43,10 +46,20 @@ header .face {
 header .face:hover {
 	background-position: 0 -100px
 }
+header h2 {
+	margin-top: 1em;
+	margin-bottom: .25em;
+}
 header h2 a {
 	color: black;
 	border: 0;
 	text-decoration: none;
+}
+header .social {
+	-webkit-margin-before: 0.83em;
+	-webkit-margin-after: 0.83em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
 }
 header .social a {
 	outline-style: none;
@@ -55,13 +68,13 @@ header .social a {
 	margin: 0 2px;
 }
 header .social a:link {
-	color: black
+	color: #bdbdbd;
 }
 header .social a:visited {
-	color: black
+	color: #bdbdbd;
 }
 header .social a:hover {
-	color: #5d5d5d
+	color: #cdcdcd
 }
 header p.chasm {
 	text-align: center;
@@ -74,6 +87,21 @@ header p.chasm {
 }
 h1,h2 {
 	font-weight: 900;
+}
+header h3 {
+  color: #bdbdbd;
+  margin: 0;
+  font-size: .925em;
+  font-weight: 500;
+}
+header h3 a {
+	text-decoration: none;
+	color: #0a98e2;
+	padding-bottom: 2px;
+	border-bottom: 1px solid #bce6fc;
+}
+header h3 a:hover {
+	border-bottom: 1px solid #0a98e2;
 }
 article h1 {
 	margin: 0;
