@@ -8,5 +8,6 @@ gem "redcarpet"
 gem "slim"
 gem "middleman-syntax"
 gem "middleman-gh-pages"
+gem "sprockets"
 # For feed.xml.builder
 gem "builder", "~> 3.0"
