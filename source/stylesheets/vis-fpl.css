@@ -1,14 +1,14 @@
 div.plot-container {
-    background: #122b3b;
+    background: #8e8e8e;
     display: inline-block;
 		position:relative;
 		left: -205px;
     width: 1000px;
-    height: 800px;
+    height: 820px;
 }
 
 text {
-    fill: #eee !important;
+    fill: #fff !important;
 }
 
 .tooltip {

@@ -28,9 +28,9 @@ function drawGraphs() {
     var legend = new Plottable.Components.Legend(colorScale);
     legend.maxEntriesPerRow(Infinity);
 
-    var lineW = 3;
+    var lineW = 3.5;
     var pointW = 3;
-    var pointS = 4;
+    var pointS = 5;
 
     var opLinePlot = new Plottable.Plots.Line().x(function (d) {
         return d.gw;
