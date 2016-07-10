@@ -1,5 +1,5 @@
 div.plot-container {
-    background: #8e8e8e;
+    background: white;
     display: inline-block;
 		position:relative;
 		left: -205px;
@@ -9,6 +9,7 @@ div.plot-container {
 
 text {
     fill: #000 !important;
+    font-family: 'Fira Sans', sans-serif !important;
 }
 
 .tooltip {
@@ -16,7 +17,6 @@ text {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: normal;

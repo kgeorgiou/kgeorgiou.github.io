@@ -1,7 +1,7 @@
 - blog.articles[0...10].each do |article|
 	article
-	  h2
-	    a href="#{article.url}" == article.title
-
 	  time
 	  	== article.date.strftime('%e %b %Y')
+
+		h2
+		  a href="#{article.url}" == article.title
