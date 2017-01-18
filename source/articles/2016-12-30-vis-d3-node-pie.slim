@@ -1,0 +1,298 @@
+---
+title: 'VIS: Force-Directed Graph of Node Pies, with D3'
+published: true
+date: 2016-12-30
+tags: visualization d3 force directed graph pie chart
+---
+
+blockquote
+  p
+    strong
+      ' TL;DR &amp; Code:
+      a href="//bl.ocks.org/kgeorgiou/68f864364f277720252d0329408433ae" target="_blank" Sneaking pie charts in graph vertices.
+
+svg class="d3-container" width="590" height="420"
+
+p
+  ' The visualization above is based on the
+  a href="//bl.ocks.org/mbostock/4062045" target="_blank" force-directed graph
+  '  layout of the
+  a href="//d3js.org/" target="_blank" D3
+  '  library.
+
+p
+  ' What's different from the D3 example is that pie charts were
+  ' injected in each vertex, to convey some additional visual information.
+
+p
+  ' The pie charts in the above context, show the percentage of different colored nodes, a given node is connected to.
+  ' Similar to the visualizations found in the
+  a href="//cran.r-project.org/web/packages/linkcomm/vignettes/linkcomm.pdf" target="_blank" lincomm
+  '  R package.
+
+h2
+  ' Drawing pie charts with SVG &amp; CSS
+
+h3
+  ' Approach #1
+
+p
+  ' For a pie chart consisting of 3 equal sized segments, we overlay 3 circle elements. Then, we insert the pie chart on top of the original
+  ' node element, to form a "node pie", as demonstrated below:
+
+svg width="590" height="100"
+  circle id="parent-node" cx="50%" cy="50%" r="50" fill="#FBB33C"
+  circle id="green-segment" class="fill-green" cx="50%" cy="50%" r="20" fill="transparent" stroke="#2bd07c" stroke-width="40" stroke-dasharray="125.6638, 251.328"
+  circle id="pink-segment" class="fill-pink" cx="50%" cy="50%" r="20" fill="transparent" stroke="#f13379" stroke-width="40" stroke-dasharray="83.78, 251.328"
+  circle id="blue-segment" class="fill-blue" cx="50%" cy="50%" r="20" fill="transparent" stroke="#2282c2" stroke-width="40" stroke-dasharray="41.8838, 251.328"
+
+svg width="590" height="100"
+  circle id="green-segment" cx="25%" cy="50%" r="20" fill="transparent" stroke="#2bd07c" stroke-width="40" stroke-dasharray="125.6638, 251.328"
+  circle id="pink-segment" cx="50%" cy="50%" r="20" fill="transparent" stroke="#f13379" stroke-width="40" stroke-dasharray="83.78, 251.328"
+  circle id="blue-segment" cx="75%" cy="50%" r="20" fill="transparent" stroke="#2282c2" stroke-width="40" stroke-dasharray="41.8838, 251.328"
+
+p
+  ' To draw a full circle is straightforward. To draw a segment of a circle that covers a fraction of the whole area, we use the
+  strong
+    ' stroke-dasharray
+  '  attribute. We also halve the circle's
+  strong
+    ' r
+  '  (radius) attribute, but set the
+  strong
+    ' stroke-width
+  '  to the original radius to maintain the desired radius on the final shape.
+
+p
+  ' Since this technique is based on having the smaller segments overlay the larger segments of the pie,
+  ' the order the circle elements appear in the DOM matters. The larger segments should precede the smaller ones
+  ' so they stay in the back, without hiding the smaller segments in the front. This effect can be also
+  ' manipulated by assigning the appropriate
+  strong z-index
+  '  values to the circle elements.
+
+p
+  ' HTML
+= code('html') do
+  |
+    <svg width="590" height="100">
+      <circle id="green-segment"/>
+      <circle id="pink-segment"/>
+      <circle id="blue-segment"/>
+    </svg>
+
+p
+  ' Javascript
+= code('javascript') do
+  |
+    var pieChart = {
+      blue:  { color: '#2282c2', percent: 33.33 },
+      pink:  { color: '#f13379', percent: 33.33 },
+      green: { color: '#2bd07c', percent: 33.34 }
+    };
+
+    var radius = 40;
+    var halfRadius = radius / 2;
+    var halfCircumference = 2 * Math.PI * halfRadius;
+
+    var percentToDraw = 0;
+
+    percentToDraw += pieChart.blue.percent; // 33.33%
+
+    d3.select('#blue-segment')
+      .attr('cx', '50%').attr('cy', '50%')
+      .attr('fill', 'transparent')
+      .attr('r', halfRadius)
+      .attr('stroke-width', radius)
+      .attr('stroke', pieChart.blue.color)
+      .attr('stroke-dasharray',
+              halfCircumference * percentToDraw / 100
+            + ' '
+            + halfCircumference);
+
+    percentToDraw += pieChart.pink.percent; // 66.66%
+
+    d3.select('#pink-segment')
+      .attr('cx', '50%').attr('cy', '50%')
+      .attr('fill', 'transparent')
+      .attr('r', halfRadius)
+      .attr('stroke-width', radius)
+      .attr('stroke', pieChart.pink.color)
+      .attr('stroke-dasharray',
+              halfCircumference * percentToDraw / 100
+            + ' '
+            + halfCircumference);
+
+    percentToDraw += pieChart.green.percent; // 100%
+
+    d3.select('#green-segment')
+      .attr('cx', '50%').attr('cy', '50%')
+      .attr('fill', 'transparent')
+      .attr('r', halfRadius)
+      .attr('stroke-width', radius)
+      .attr('stroke', pieChart.green.color)
+      .attr('stroke-dasharray',
+              halfCircumference * percentToDraw / 100
+            + ' '
+            + halfCircumference);
+
+h3
+  ' Approach #2
+
+p
+  ' A different approach is to paint exactly the desired percentage for each segment, and
+  ' then rotate the segment by some calculated degrees.
+
+svg width="590" height="100"
+  circle id="parent-node" cx="50%" cy="50%" r="50" fill="#FBB33C"
+  circle id="blue-segment" class="rotate-blue" cx="50%" cy="50%" r="20" fill="transparent" stroke="#2282c2" stroke-width="40" stroke-dasharray="0, 251.328"
+  circle id="pink-segment" class="rotate-pink" cx="50%" cy="50%" r="20" fill="transparent" stroke="#f13379" stroke-width="40" stroke-dasharray="0, 251.328"
+  circle id="green-segment" class="rotate-green" cx="50%" cy="50%" r="20" fill="transparent" stroke="#2bd07c" stroke-width="40" stroke-dasharray="0, 251.328"
+
+svg width="590" height="100"
+  circle id="blue-segment" cx="75%" cy="50%" r="20" fill="transparent" stroke="#2282c2" stroke-width="40" stroke-dasharray="41.8838, 251.328" style="transform-origin: 50% 50%; transform: rotate(0eg)"
+  circle id="pink-segment" cx="50%" cy="50%" r="20" fill="transparent" stroke="#f13379" stroke-width="40" stroke-dasharray="41.8838, 251.328" style="transform-origin: 50% 50%; transform: rotate(119.988deg)"
+  circle id="green-segment" cx="25%" cy="50%" r="20" fill="transparent" stroke="#2bd07c" stroke-width="40" stroke-dasharray="41.8838, 251.328" style="transform-origin: 50% 50%; transform: rotate(240.012deg)"
+
+p
+  ' HTML
+= code('html') do
+  |
+    <svg width="590" height="100">
+        <circle id="blue-segment"/>
+        <circle id="pink-segment"/>
+        <circle id="green-segment"/>
+    </svg>
+
+p
+  ' Javascript
+= code('javascript') do
+  |
+    var pieChart = {
+      blue:  { color: '#2282c2', percent: 33.33 },
+      pink:  { color: '#f13379', percent: 33.33 },
+      green: { color: '#2bd07c', percent: 33.34 }
+    };
+
+    var radius = 40;
+    var halfRadius = radius / 2;
+    var halfCircumference = 2 * Math.PI * halfRadius;
+
+    // 0deg drawn up to this point
+    var degreesDrawn = 0;
+
+    d3.select('#blue-segment')
+      .attr('cx', '50%').attr('cy', '50%')
+      .attr('fill', 'transparent')
+      .attr('r', halfRadius)
+      .attr('stroke-width', radius)
+      .attr('stroke', pieChart.blue.color)
+      .attr('stroke-dasharray',
+              halfCircumference * pieChart.blue.percent / 100
+            + ' '
+            + halfCircumference)
+      .style('transform-origin', '50% 50%')
+      .style('transform', 'rotate(' + degreesDrawn + 'deg)');
+
+    // 119.988deg drawn up to this point
+    degreesDrawn += 360 * pieChart.blue.percent / 100;
+
+    d3.select('#pink-segment')
+      .attr('cx', '50%').attr('cy', '50%')
+      .attr('fill', 'transparent')
+      .attr('r', halfRadius)
+      .attr('stroke-width', radius)
+      .attr('stroke', pieChart.pink.color)
+      .attr('stroke-dasharray',
+              halfCircumference * pieChart.pink.percent / 100
+            + ' '
+            + halfCircumference)
+      .style('transform-origin', '50% 50%')
+      .style('transform', 'rotate(' + degreesDrawn + 'deg)');
+
+    // 240.012deg drawn up to this point
+    degreesDrawn += 360 * pieChart.pink.percent / 100;
+
+    d3.select('#green-segment')
+      .attr('cx', '50%').attr('cy', '50%')
+      .attr('fill', 'transparent')
+      .attr('r', halfRadius)
+      .attr('stroke-width', radius)
+      .attr('stroke', pieChart.green.color)
+      .attr('stroke-dasharray',
+              halfCircumference * pieChart.green.percent / 100
+            + ' '
+            + halfCircumference)
+      .style('transform-origin', '50% 50%')
+      .style('transform', 'rotate(' + degreesDrawn + 'deg)');
+
+    // 360deg, i.e. a full circle, drawn
+    degreesDrawn += 360 * pieChart.green.percent / 100;
+
+h3
+  ' Notes
+
+p
+  ' Burdening the DOM with multiple HTML elements to draw a single pie chart doesn't feel right. We could use
+  ' a conic gradient instead, with the help of
+  a href="//leaverou.github.io/conic-gradient/" target="_blank" this
+  '  polyfill by
+  a href="//lea.verou.me/" target="_blank" Lea Verou
+  ' . Hopefully, browsers will build support for
+  strong
+    ' conic-gradient
+  ' soon.
+
+p
+  ' Lea has also authored an
+  a href="//www.smashingmagazine.com/2015/07/designing-simple-pie-charts-with-css/" target="_blank" article
+  '  that nicely explains the CSS &amp; SVG techniques that were used to draw
+  ' the pie charts above.
+
+p
+  ' For more CSS magic, it's worth checking out her book
+  a target="_blank" href="//www.amazon.com/gp/product/1449372635/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1449372635&linkCode=as2&tag=kg006-20&linkId=c0679e282d8be1191562f20a2503eec7" CSS Secrets: Better Solutions to Everyday Web Design Problems
+  ' .
+
+h2
+  ' Force-Directed Layout &amp; Node Pies
+
+p
+  ' Now we've figured out how to dynamically draw pie charts using CSS &amp; SVG, it's time to inject them in
+  ' our D3 force-directed layout.
+
+p
+  ' The force-directed layout example in the D3 gallery is very clearly written by Mike Bostock, the author of D3.
+
+p
+  ' All the graph node elements are created by D3, according to the input data
+  '  and are stored in the
+  strong node
+  '  variable. Now we can iterate each datum with
+  strong .each()
+  ' , and by using
+  strong d3.select(this)
+  '  we can select the current node element in the DOM and apply D3 operators, like
+  strong .attr()
+  '  and
+  strong .style()
+  ' , to modify it.
+
+
+= code('javascript') do
+  |
+    node.each(function (d) {
+      /* Draw node pie for each node element */
+    });
+
+p
+  ' The pie chart drawing logic is located in a separated file,
+  a href="//gist.github.com/kgeorgiou/68f864364f277720252d0329408433ae#file-node-pie-js" target="_blank" node-pie.js
+  ' .
+
+p
+  ' You can see the full source code and how it looks
+  a href="//bl.ocks.org/kgeorgiou/68f864364f277720252d0329408433ae" target="_blank" here
+  ' .
+
+= partial "vis-node-pies"

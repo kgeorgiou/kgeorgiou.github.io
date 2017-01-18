@@ -62,10 +62,11 @@ header .social {
 	-webkit-margin-end: 0px;
 }
 header .social a {
+	font-size: .9em;
 	outline-style: none;
-	font-size: 1.5em;
 	text-decoration: none;
-	margin: 0 2px;
+	margin: 0 8px;
+	letter-spacing: 1px;
 }
 header .social a:link {
 	color: #bdbdbd;
@@ -74,7 +75,7 @@ header .social a:visited {
 	color: #bdbdbd;
 }
 header .social a:hover {
-	color: #cdcdcd
+	border-bottom: 1px solid #bdbdbd;
 }
 header p.chasm {
 	text-align: center;

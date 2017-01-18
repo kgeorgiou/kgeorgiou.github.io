@@ -1,0 +1,94 @@
+.links line {
+    stroke: #999;
+    stroke-opacity: 0.6;
+}
+
+.nodes g text {
+    font-size: 1em;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+}
+
+@keyframes fill-blue {
+    0% { stroke-dasharray: 0, 251.328 }
+    65% { stroke-dasharray: 0, 251.328 }
+    80% { stroke-dasharray: 41.8838, 251.328 }
+    100% { stroke-dasharray: 41.8838, 251.328 }
+}
+
+@keyframes fill-pink {
+    0% { stroke-dasharray: 0, 251.328 }
+    35% { stroke-dasharray: 0, 251.328 }
+    60% { stroke-dasharray: 83,78, 251.328 }
+    100% { stroke-dasharray: 83,78, 251.328 }
+}
+
+@keyframes fill-green {
+    0% { stroke-dasharray: 0, 251.328 }
+    10% { stroke-dasharray: 0, 251.328 }
+    30% { stroke-dasharray: 125.6638, 251.328 }
+    100% { stroke-dasharray: 125.6638, 251.328 }
+}
+
+
+.fill-blue {
+    animation: fill-blue 6s infinite alternate;
+    animation-timing-function: linear;
+}
+
+.fill-pink {
+    animation: fill-pink 6s infinite alternate;
+    animation-timing-function: linear;
+}
+
+.fill-green {
+    animation: fill-green 6s infinite alternate;
+    animation-timing-function: linear;
+}
+
+
+@keyframes rotate-blue {
+    0% { transform: rotate(0deg); stroke-dasharray: 0, 251.328 }
+    80% { transform: rotate(0deg); stroke-dasharray: 0, 251.328 }
+    90% { transform: rotate(0deg); stroke-dasharray: 41.8838, 251.328 }
+    100% { transform: rotate(0deg); stroke-dasharray: 41.8838, 251.328 }
+}
+
+@keyframes rotate-pink {
+    0% { transform: rotate(0deg); stroke-dasharray: 0, 251.328 }
+    50% { transform: rotate(0deg); stroke-dasharray: 0, 251.328 }
+    60% { transform: rotate(0deg); stroke-dasharray: 41.8838, 251.328 }
+    65% { transform: rotate(0deg); stroke-dasharray: 41.8838, 251.328 }
+    75% { transform: rotate(119.988deg); stroke-dasharray: 41.8838, 251.328 }
+    100% { transform: rotate(119.988deg); stroke-dasharray: 41.8838, 251.328 }
+}
+
+@keyframes rotate-green {
+    0% { transform: rotate(0deg); stroke-dasharray: 0, 251.328 }
+    10% { transform: rotate(0deg); stroke-dasharray: 0, 251.328 }
+    20% { transform: rotate(0deg); stroke-dasharray: 41.8838, 251.328 }
+    25% { transform: rotate(0deg); stroke-dasharray: 41.8838, 251.328 }
+    35% { transform: rotate(240.012deg); stroke-dasharray: 41.8838, 251.328 }
+    100% { transform: rotate(240.012deg); stroke-dasharray: 41.8838, 251.328 }
+}
+
+
+.rotate-blue {
+    animation: rotate-blue 6s infinite alternate;
+    animation-timing-function: linear;
+    transform-origin: 50% 50%;
+}
+
+.rotate-pink {
+    animation: rotate-pink 6s infinite alternate;
+    animation-timing-function: linear;
+    transform-origin: 50% 50%;
+}
+
+.rotate-green {
+    animation: rotate-green 6s infinite alternate;
+    animation-timing-function: linear;
+    transform-origin: 50% 50%;
+}
+
+
