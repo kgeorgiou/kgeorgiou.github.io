@@ -263,25 +263,147 @@ p
 
 p
   ' The force-directed layout example in the D3 gallery is very clearly written by Mike Bostock, the author of D3.
+  ' All we have to do now is to get a reference on each graph node element and draw each respective pie chart inside.
+  ' For this example, the input data was tweaked as well. The D3 example uses data based from Victor Hugo's "Les Misérables",
+  ' however for this example a dummy JSON file was used, to represent a graph of 8 vertices and 12 edges.
+
+h3
+  ' The Data
+
+= code('json') do
+  |
+    {
+      "nodes": [
+        {
+          "id": "a", "group": 1,
+          "pieChart": [
+            { "color": 1, "percent": 40 },
+            { "color": 2, "percent": 20 },
+            { "color": 3, "percent": 20 },
+            { "color": 4, "percent": 20 }
+          ]
+        },
+        {
+          "id": "b", "group": 2,
+          "pieChart": [
+            { "color": 1, "percent": 33.33 },
+            { "color": 2, "percent": 33.34 },
+            { "color": 3, "percent": 33.33 }
+          ]
+        },
+        {
+          "id": "c", "group": 3,
+          "pieChart": [
+            { "color": 1, "percent": 25 },
+            { "color": 2, "percent": 25 },
+            { "color": 3, "percent": 25 },
+            { "color": 4, "percent": 25 }
+          ]
+        },
+        {
+          "id": "d", "group": 4,
+          "pieChart": [
+            { "color": 1, "percent": 33.33 },
+            { "color": 3, "percent": 33.33 },
+            { "color": 4, "percent": 33.34 }
+          ]
+        },
+        {
+          "id": "e", "group": 1,
+          "pieChart": [
+            { "color": 1, "percent": 100 }
+          ]
+        },
+        {
+          "id": "f", "group": 1,
+          "pieChart": [
+            { "color": 1, "percent": 100 }
+          ]
+        },
+        {
+          "id": "g", "group": 2,
+          "pieChart": [
+            { "color": 2, "percent": 50 },
+            { "color": 3, "percent": 50 }
+          ]
+        },
+        {
+          "id": "h", "group": 3,
+          "pieChart": [
+            { "color": 2, "percent": 50 },
+            { "color": 3, "percent": 50 }
+          ]
+        },
+        {
+          "id": "i", "group": 4,
+          "pieChart": [
+            { "color": 4, "percent": 100 }
+          ]
+        }
+      ],
+      "links": [
+        { "source": "a", "target": "b", "value": 5 },
+        { "source": "a", "target": "c", "value": 5 },
+        { "source": "a", "target": "d", "value": 5 },
+        { "source": "a", "target": "e", "value": 5 },
+        { "source": "a", "target": "f", "value": 5 },
+        { "source": "b", "target": "c", "value": 5 },
+        { "source": "b", "target": "g", "value": 5 },
+        { "source": "c", "target": "d", "value": 5 },
+        { "source": "c", "target": "h", "value": 5 },
+        { "source": "d", "target": "i", "value": 5 },
+        { "source": "e", "target": "f", "value": 5 },
+        { "source": "h", "target": "g", "value": 5 }
+      ]
+    }
+
+p
+  ' Notice that the details of the pie charts to be drawn on each node, are explicitly defined in the input data.
+
+= code('json') do
+  |
+    {
+      "pieChart": [
+        { "color": 1, "percent": 33.33 },
+        { "color": 2, "percent": 33.34 },
+        { "color": 3, "percent": 33.33 }
+      ]
+    }
+
+p
+  ' The color property could be an RGB value or a CSS color name,
+  ' depending how we're planning to parse that attribute in our code. However,
+  ' for this example we use
+  a href="//github.com/d3/d3-scale#schemeCategory10" target="_blank" d3.schemeCategory10
+  '  to generate colors from integers.
+
+p
+  ' A different approach would be to omit the pie chart details from the input data and compute them
+  ' dynamically during runtime.
+
+
+h3
+  ' Iterate, Select &amp; Draw, with D3 operators
 
 p
   ' All the graph node elements are created by D3, according to the input data
   '  and are stored in the
   strong node
   '  variable. Now we can iterate each datum with
-  strong .each()
+  a href="//github.com/d3/d3-selection#selection_each" target="_blank" .each()
   ' , and by using
-  strong d3.select(this)
+  a href="//github.com/d3/d3-selection#select" target="_blank" d3.select(this)
   '  we can select the current node element in the DOM and apply D3 operators, like
-  strong .attr()
+  a href="//github.com/d3/d3-selection#selection_attr" target="_blank" .attr()
   '  and
-  strong .style()
+  a href="//github.com/d3/d3-selection#selection_style" target="_blank" .style()
   ' , to modify it.
 
 
 = code('javascript') do
   |
     node.each(function (d) {
+      var nodeElement = d3.select(this);
       /* Draw node pie for each node element */
     });
 
