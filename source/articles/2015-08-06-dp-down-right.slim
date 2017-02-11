@@ -8,28 +8,28 @@ tags: dp dynamic programming competitive 2d matrix down right
 blockquote
    p
       strong
-         ' DP 
-      ' stands for 
+         ' DP
+      ' stands for
       a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank" Dynamic Programming
       ' , if you had high hopes for something different, my sincere apologies.
 
 p
-   ' This blog entry is about a problem that often appears in competitive programming competitions and it demonstrates the ingenuity of Dynamic Programming and can help people who aren't familiar with it, grasp the essence of this technique. 
+   ' This blog entry is about a problem that often appears in competitive programming competitions and it demonstrates the ingenuity of Dynamic Programming and can help people who aren't familiar with it, grasp the essence of this technique.
 
 h3
    ' Sample problem statement:
 
 p
-   ' Alice is located in the North-West (Top-Left) block of her city, which has the form of a gird of $NxN$ blocks. On each block there is a number of naughty kids. She wishes to reach the South-West (Bottom-Right) block while encountering the least amount of naughty kids as possible. She can only move to blocks South (Down) or East (Right) of her current block. Help Alice minimize the total number of naughty kids she encounters along the way.
+   ' Alice is located in the North-West (Top-Left) block of her city, which has the form of a gird of $NxN$ blocks. On each block there is a number of naughty kids. She wishes to reach the South-East (Bottom-Right) block while encountering the least amount of naughty kids as possible. She can only move to blocks South (Down) or East (Right) of her current block. Help Alice minimize the total number of naughty kids she encounters along the way.
 
 blockquote
    p
         strong
-           ' TL;DR: 
+           ' TL;DR:
         ' On a 2D matrix where every cell has a value, minimize (or maximize) the cost of moving from the top-left cell to the bottom-right cell, while only being able to move down and right.
 
 p
-  ' The above statement is a minimization problem. If the statement was talking about Alice's friends instead of naughty kids we would have a maximization problem and the solution that follows would still work - just by swapping the $min$ function with $max$. 
+  ' The above statement is a minimization problem. If the statement was talking about Alice's friends instead of naughty kids we would have a maximization problem and the solution that follows would still work - just by swapping the $min$ function with $max$.
 
 h3
    ' Dynamic Programming solution
@@ -48,11 +48,11 @@ p
    $$
 
 p
-   ' Since each cell can only be entered either from above or from the left, the optimal solution for arriving at a given cell is the minimum of the cost of entering from the left and the cost of entering from above. Also we need to take into account the given cell's cost as well. Note that cells on the first row and column can only be accessed from one direction only, thus the optimal cost of arriving at such a cell is its own cost plus the cost of the only possible way of entering it. 
+   ' Since each cell can only be entered either from above or from the left, the optimal solution for arriving at a given cell is the minimum of the cost of entering from the left and the cost of entering from above. Also we need to take into account the given cell's cost as well. Note that cells on the first row and column can only be accessed from one direction only, thus the optimal cost of arriving at such a cell is its own cost plus the cost of the only possible way of entering it.
    strong
       ' Basically, we are using the solutions of previous subproblems to reach the global solution. That is the essence of Dynamic Programming.
 
-p   
+p
    ' Above explanation in fancy math notation where $opt(i,j)$ denotes the optimal solution for the cell at row $i$ and column $j$ and $c(i,j)$ denotes its cost value:
 
 p
@@ -86,7 +86,7 @@ p
                opt[i][j] = opt[i][j-1] + c[i][j];
             } else {
                opt[i][j] = c[i][j];
-            }  
+            }
          }
       }
 
@@ -110,7 +110,7 @@ p
    $$
 
 p
-   ' The optimal solution for reaching the last cell, $opt[n-1][n-1]$, is the global optimal solution of the problem given. 
+   ' The optimal solution for reaching the last cell, $opt[n-1][n-1]$, is the global optimal solution of the problem given.
 
 p
    ' For the above scenario the global solution is 5 and it can be achieved by following the path demonstrated below.
@@ -132,7 +132,7 @@ h3
    ' Remarks
 
 p
-   ' The first time I encountered the problem above, I had no idea how Dynamic Programming works per se, but I knew about graphs and an awesome guy called Dijkstra whose famous 
+   ' The first time I encountered the problem above, I had no idea how Dynamic Programming works per se, but I knew about graphs and an awesome guy called Dijkstra whose famous
    a href="//en.wikipedia.org/wiki/Dijkstra%27s_algorithm" target="_blank" algorithm
    '  helped me come up with a solution. It's nice to have multiple techniques to solve a specific problem but DP is one of the strongest weapons in a competitive programmer's arsenal.
 
