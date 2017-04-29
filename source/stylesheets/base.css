@@ -4,9 +4,11 @@ html {
 body, html {
 	margin: 0;
 	padding: 0;
+	background: #f5f5f5;
+	color: #4d4d4d;
 }
 body {
-	font-family: 'Fira Sans', 'Lato', sans-serif;;
+	font-family: 'Asap', sans-serif;;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility
 }
@@ -51,7 +53,7 @@ header h2 {
 	margin-bottom: .25em;
 }
 header h2 a {
-	color: black;
+	color: #4d4d4d;
 	border: 0;
 	text-decoration: none;
 }
@@ -106,20 +108,23 @@ header h3 a:hover {
 }
 article h1 {
 	margin: 0;
-	color: black
+	color: #4d4d4d;
 }
 article h2 {
 	margin: 0 0 1em 0;
-	color: black;
+	color: #4d4d4d;
 	padding: 0;
 }
 article h2 a {
-	color: black;
+	color: #4d4d4d;
 	border: none;
 }
 article h2 a:hover {
 	padding-bottom: 1px;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #4d4d4d;
+}
+article p, ol, ul {
+		line-height: 1.5em;
 }
 article a {
 	text-decoration: none;
