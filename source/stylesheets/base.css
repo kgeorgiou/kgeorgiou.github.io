@@ -53,7 +53,7 @@ header h2 {
 	margin-bottom: .25em;
 }
 header h2 a {
-	color: #4d4d4d;
+	color: #333;
 	border: 0;
 	text-decoration: none;
 }
@@ -108,22 +108,22 @@ header h3 a:hover {
 }
 article h1 {
 	margin: 0;
-	color: #4d4d4d;
+	color: #333;
 }
 article h2 {
 	margin: 0 0 1em 0;
-	color: #4d4d4d;
+	color: #333;
 	padding: 0;
 }
 article h2 a {
-	color: #4d4d4d;
+	color: #333;
 	border: none;
 }
 article h2 a:hover {
 	padding-bottom: 1px;
 	border-bottom: 1px solid #4d4d4d;
 }
-article p, ol, ul {
+article p, ol {
 		line-height: 1.5em;
 }
 article a {
