@@ -48,65 +48,63 @@ p
   a href="//fantasy.premierleague.com" target="_blank" FPL
   '  website.
 
-div class="code-snippet-wrapper"
-  = code('javascript') do
-    |
-      var cheerio = require('cheerio');
+= code('javascript') do
+  |
+    var cheerio = require('cheerio');
 
-      // Scrapping every player's info from the HTML table at
-      // fantasy.premierleague.com/my-leagues/92278/standings/
+    // Scrapping every player's info from the HTML table at
+    // fantasy.premierleague.com/my-leagues/92278/standings/
 
-      var players = [];
+    var players = [];
 
-      var $ = cheerio.load(html);
+    var $ = cheerio.load(html);
 
-      $('.ismTable.ismStandingsTable tr')
-        .slice(1).each(function (i, row) {
+    $('.ismTable.ismStandingsTable tr')
+      .slice(1).each(function (i, row) {
 
-          var playerId = '',
-              teamName = '',
-              playerName = '';
+        var playerId = '',
+            teamName = '',
+            playerName = '';
 
-          $(this)
-          .find('td').each(function (n, td) {
+        $(this)
+        .find('td').each(function (n, td) {
 
-            if (n === 2) {
-                playerId = $(this)
-                          .find('a').attr('href').split("/")[2];
-                teamName = $(this).find('a').text();
-            } else if (n === 3) {
-                playerName = $(this).text();
-            }
-          });
+          if (n === 2) {
+              playerId = $(this)
+                        .find('a').attr('href').split("/")[2];
+              teamName = $(this).find('a').text();
+          } else if (n === 3) {
+              playerName = $(this).text();
+          }
+        });
 
-          players.push({
-            entry: playerId,
-            pname: playerName,
-            tname: teamName
-          });
-      });
+        players.push({
+          entry: playerId,
+          pname: playerName,
+          tname: teamName
+        });
+    });
 
 p
   ' 2.
   a href="//plottablejs.org/" target="_blank" Plottable.js
   '  for plotting the bump chart.
 
-div class="code-snippet-wrapper"
-  = code('javascript')
-    |
-      // Rendering plot as a table of components
-      var table = new Plottable.Components.Table([
-        [null, title],
-        [null, legend],
-        [null, labelOp],
-        [yAxisOp, opPlots],
-        [null, xAxisOp],
-        [null, labelTv],
-        [yAxisTv, tvPlots],
-        [null, xAxisTv]
-      ]);
+= code('javascript')
+  |
+    // Rendering plot as a table of components
+    var table = new Plottable.Components.Table([
+      [null, title],
+      [null, legend],
+      [null, labelOp],
+      [yAxisOp, opPlots],
+      [null, xAxisOp],
+      [null, labelTv],
+      [yAxisTv, tvPlots],
+      [null, xAxisTv]
+    ]);
 
-      table.renderTo("svg#fpl-plot");
+    table.renderTo("svg#fpl-plot");
 
 p
   ' Shortcomings:

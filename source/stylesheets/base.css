@@ -158,7 +158,7 @@ blockquote {
 }
 
 .code-snippet-wrapper {
-	width: calc(50vw + 50% - 8px);
+	width: calc(50vw + 50%);
     position: relative;
     left: calc(-50vw + 50%);
     padding: 1px 0 1px calc(50vw - 50%);
