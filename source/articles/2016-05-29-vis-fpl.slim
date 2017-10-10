@@ -27,7 +27,7 @@ p
 p
   ' In this article I'll demonstrate a simple, interactive, visualization from
   ' the data gathered from my private FPL League,
-  a href="//fantasy.premierleague.com/my-leagues/92278/standings/" target="_blank" The League of Sirs
+  a href="//fantasy.premierleague.com/a/leagues/standings/94890/classic" target="_blank" The League of Sirs
   ' .
 
 p
@@ -48,63 +48,65 @@ p
   a href="//fantasy.premierleague.com" target="_blank" FPL
   '  website.
 
-= code('javascript') do
-  |
-     var cheerio = require('cheerio');
+div class="code-snippet-wrapper"
+  = code('javascript') do
+    |
+      var cheerio = require('cheerio');
 
-     // Scrapping every player's info from the HTML table at
-     // fantasy.premierleague.com/my-leagues/92278/standings/
+      // Scrapping every player's info from the HTML table at
+      // fantasy.premierleague.com/my-leagues/92278/standings/
 
-     var players = [];
+      var players = [];
 
-     var $ = cheerio.load(html);
+      var $ = cheerio.load(html);
 
-     $('.ismTable.ismStandingsTable tr')
-      .slice(1).each(function (i, row) {
+      $('.ismTable.ismStandingsTable tr')
+        .slice(1).each(function (i, row) {
 
-        var playerId = '',
-            teamName = '',
-            playerName = '';
+          var playerId = '',
+              teamName = '',
+              playerName = '';
 
-        $(this)
-         .find('td').each(function (n, td) {
+          $(this)
+          .find('td').each(function (n, td) {
 
-           if (n === 2) {
-              playerId = $(this)
-                         .find('a').attr('href').split("/")[2];
-              teamName = $(this).find('a').text();
-           } else if (n === 3) {
-              playerName = $(this).text();
-           }
-        });
+            if (n === 2) {
+                playerId = $(this)
+                          .find('a').attr('href').split("/")[2];
+                teamName = $(this).find('a').text();
+            } else if (n === 3) {
+                playerName = $(this).text();
+            }
+          });
 
-        players.push({
-           entry: playerId,
-           pname: playerName,
-           tname: teamName
-        });
-     });
+          players.push({
+            entry: playerId,
+            pname: playerName,
+            tname: teamName
+          });
+      });
 
 p
   ' 2.
   a href="//plottablejs.org/" target="_blank" Plottable.js
   '  for plotting the bump chart.
 
-= code('javascript')
-  |
-    // Rendering plot as a table of components
-    var table = new Plottable.Components.Table([
-       [null, title],
-       [null, legend],
-       [null, labelOp],
-       [yAxisOp, opPlots],
-       [null, xAxisOp],
-       [null, labelTv],
-       [yAxisTv, tvPlots],
-       [null, xAxisTv]
-    ]);
+div class="code-snippet-wrapper"
+  = code('javascript')
+    |
+      // Rendering plot as a table of components
+      var table = new Plottable.Components.Table([
+        [null, title],
+        [null, legend],
+        [null, labelOp],
+        [yAxisOp, opPlots],
+        [null, xAxisOp],
+        [null, labelTv],
+        [yAxisTv, tvPlots],
+        [null, xAxisTv]
+      ]);
 
-    table.renderTo("svg#fpl-plot");
+      table.renderTo("svg#fpl-plot");
 
 p
   ' Shortcomings:
@@ -132,7 +134,7 @@ p
   ' Finally, credit must be given where it is due. Congratulations to
   a href="//twitter.com/LCFC" target="_blank" Leicester City FC
   '  for winning the Premier League and to
-  a href="//fantasy.premierleague.com/entry/143624/history/" target="_blank" Unpezable FC
+  a href="//fantasy.premierleague.com/a/entry/148892/history" target="_blank" Unpezable FC
   '  for winning the prestigious League of Sirs!
 
 = partial "vis-fpl"

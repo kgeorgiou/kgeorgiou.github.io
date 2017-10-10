@@ -72,68 +72,70 @@ p
 
 p
   ' HTML
-= code('html') do
-  |
-    <svg width="590" height="100">
-      <circle id="green-segment"/>
-      <circle id="pink-segment"/>
-      <circle id="blue-segment"/>
-    </svg>
+div class="code-snippet-wrapper"
+  = code('html') do
+    |
+      <svg width="590" height="100">
+        <circle id="green-segment"/>
+        <circle id="pink-segment"/>
+        <circle id="blue-segment"/>
+      </svg>
 
 p
   ' Javascript
-= code('javascript') do
-  |
-    var pieChart = {
-      blue:  { color: '#2282c2', percent: 33.33 },
-      pink:  { color: '#f13379', percent: 33.33 },
-      green: { color: '#2bd07c', percent: 33.34 }
-    };
+div class="code-snippet-wrapper"
+  = code('javascript') do
+    |
+      var pieChart = {
+        blue:  { color: '#2282c2', percent: 33.33 },
+        pink:  { color: '#f13379', percent: 33.33 },
+        green: { color: '#2bd07c', percent: 33.34 }
+      };
 
-    var radius = 40;
-    var halfRadius = radius / 2;
-    var halfCircumference = 2 * Math.PI * halfRadius;
+      var radius = 40;
+      var halfRadius = radius / 2;
+      var halfCircumference = 2 * Math.PI * halfRadius;
 
-    var percentToDraw = 0;
+      var percentToDraw = 0;
 
-    percentToDraw += pieChart.blue.percent; // 33.33%
+      percentToDraw += pieChart.blue.percent; // 33.33%
 
-    d3.select('#blue-segment')
-      .attr('cx', '50%').attr('cy', '50%')
-      .attr('fill', 'transparent')
-      .attr('r', halfRadius)
-      .attr('stroke-width', radius)
-      .attr('stroke', pieChart.blue.color)
-      .attr('stroke-dasharray',
-              halfCircumference * percentToDraw / 100
-            + ' '
-            + halfCircumference);
+      d3.select('#blue-segment')
+        .attr('cx', '50%').attr('cy', '50%')
+        .attr('fill', 'transparent')
+        .attr('r', halfRadius)
+        .attr('stroke-width', radius)
+        .attr('stroke', pieChart.blue.color)
+        .attr('stroke-dasharray',
+                halfCircumference * percentToDraw / 100
+              + ' '
+              + halfCircumference);
 
-    percentToDraw += pieChart.pink.percent; // 66.66%
+      percentToDraw += pieChart.pink.percent; // 66.66%
 
-    d3.select('#pink-segment')
-      .attr('cx', '50%').attr('cy', '50%')
-      .attr('fill', 'transparent')
-      .attr('r', halfRadius)
-      .attr('stroke-width', radius)
-      .attr('stroke', pieChart.pink.color)
-      .attr('stroke-dasharray',
-              halfCircumference * percentToDraw / 100
-            + ' '
-            + halfCircumference);
+      d3.select('#pink-segment')
+        .attr('cx', '50%').attr('cy', '50%')
+        .attr('fill', 'transparent')
+        .attr('r', halfRadius)
+        .attr('stroke-width', radius)
+        .attr('stroke', pieChart.pink.color)
+        .attr('stroke-dasharray',
+                halfCircumference * percentToDraw / 100
+              + ' '
+              + halfCircumference);
 
-    percentToDraw += pieChart.green.percent; // 100%
+      percentToDraw += pieChart.green.percent; // 100%
 
-    d3.select('#green-segment')
-      .attr('cx', '50%').attr('cy', '50%')
-      .attr('fill', 'transparent')
-      .attr('r', halfRadius)
-      .attr('stroke-width', radius)
-      .attr('stroke', pieChart.green.color)
-      .attr('stroke-dasharray',
-              halfCircumference * percentToDraw / 100
-            + ' '
-            + halfCircumference);
+      d3.select('#green-segment')
+        .attr('cx', '50%').attr('cy', '50%')
+        .attr('fill', 'transparent')
+        .attr('r', halfRadius)
+        .attr('stroke-width', radius)
+        .attr('stroke', pieChart.green.color)
+        .attr('stroke-dasharray',
+                halfCircumference * percentToDraw / 100
+              + ' '
+              + halfCircumference);
 
 h3
   ' Approach #2
@@ -155,78 +157,80 @@ svg width="590" height="100"
 
 p
   ' HTML
-= code('html') do
-  |
-    <svg width="590" height="100">
-        <circle id="blue-segment"/>
-        <circle id="pink-segment"/>
-        <circle id="green-segment"/>
-    </svg>
+div class="code-snippet-wrapper"
+  = code('html') do
+    |
+      <svg width="590" height="100">
+          <circle id="blue-segment"/>
+          <circle id="pink-segment"/>
+          <circle id="green-segment"/>
+      </svg>
 
 p
   ' Javascript
-= code('javascript') do
-  |
-    var pieChart = {
-      blue:  { color: '#2282c2', percent: 33.33 },
-      pink:  { color: '#f13379', percent: 33.33 },
-      green: { color: '#2bd07c', percent: 33.34 }
-    };
+div class="code-snippet-wrapper"
+  = code('javascript') do
+    |
+      var pieChart = {
+        blue:  { color: '#2282c2', percent: 33.33 },
+        pink:  { color: '#f13379', percent: 33.33 },
+        green: { color: '#2bd07c', percent: 33.34 }
+      };
 
-    var radius = 40;
-    var halfRadius = radius / 2;
-    var halfCircumference = 2 * Math.PI * halfRadius;
+      var radius = 40;
+      var halfRadius = radius / 2;
+      var halfCircumference = 2 * Math.PI * halfRadius;
 
-    // 0deg drawn up to this point
-    var degreesDrawn = 0;
+      // 0deg drawn up to this point
+      var degreesDrawn = 0;
 
-    d3.select('#blue-segment')
-      .attr('cx', '50%').attr('cy', '50%')
-      .attr('fill', 'transparent')
-      .attr('r', halfRadius)
-      .attr('stroke-width', radius)
-      .attr('stroke', pieChart.blue.color)
-      .attr('stroke-dasharray',
-              halfCircumference * pieChart.blue.percent / 100
-            + ' '
-            + halfCircumference)
-      .style('transform-origin', '50% 50%')
-      .style('transform', 'rotate(' + degreesDrawn + 'deg)');
+      d3.select('#blue-segment')
+        .attr('cx', '50%').attr('cy', '50%')
+        .attr('fill', 'transparent')
+        .attr('r', halfRadius)
+        .attr('stroke-width', radius)
+        .attr('stroke', pieChart.blue.color)
+        .attr('stroke-dasharray',
+                halfCircumference * pieChart.blue.percent / 100
+              + ' '
+              + halfCircumference)
+        .style('transform-origin', '50% 50%')
+        .style('transform', 'rotate(' + degreesDrawn + 'deg)');
 
-    // 119.988deg drawn up to this point
-    degreesDrawn += 360 * pieChart.blue.percent / 100;
+      // 119.988deg drawn up to this point
+      degreesDrawn += 360 * pieChart.blue.percent / 100;
 
-    d3.select('#pink-segment')
-      .attr('cx', '50%').attr('cy', '50%')
-      .attr('fill', 'transparent')
-      .attr('r', halfRadius)
-      .attr('stroke-width', radius)
-      .attr('stroke', pieChart.pink.color)
-      .attr('stroke-dasharray',
-              halfCircumference * pieChart.pink.percent / 100
-            + ' '
-            + halfCircumference)
-      .style('transform-origin', '50% 50%')
-      .style('transform', 'rotate(' + degreesDrawn + 'deg)');
+      d3.select('#pink-segment')
+        .attr('cx', '50%').attr('cy', '50%')
+        .attr('fill', 'transparent')
+        .attr('r', halfRadius)
+        .attr('stroke-width', radius)
+        .attr('stroke', pieChart.pink.color)
+        .attr('stroke-dasharray',
+                halfCircumference * pieChart.pink.percent / 100
+              + ' '
+              + halfCircumference)
+        .style('transform-origin', '50% 50%')
+        .style('transform', 'rotate(' + degreesDrawn + 'deg)');
 
-    // 240.012deg drawn up to this point
-    degreesDrawn += 360 * pieChart.pink.percent / 100;
+      // 240.012deg drawn up to this point
+      degreesDrawn += 360 * pieChart.pink.percent / 100;
 
-    d3.select('#green-segment')
-      .attr('cx', '50%').attr('cy', '50%')
-      .attr('fill', 'transparent')
-      .attr('r', halfRadius)
-      .attr('stroke-width', radius)
-      .attr('stroke', pieChart.green.color)
-      .attr('stroke-dasharray',
-              halfCircumference * pieChart.green.percent / 100
-            + ' '
-            + halfCircumference)
-      .style('transform-origin', '50% 50%')
-      .style('transform', 'rotate(' + degreesDrawn + 'deg)');
+      d3.select('#green-segment')
+        .attr('cx', '50%').attr('cy', '50%')
+        .attr('fill', 'transparent')
+        .attr('r', halfRadius)
+        .attr('stroke-width', radius)
+        .attr('stroke', pieChart.green.color)
+        .attr('stroke-dasharray',
+                halfCircumference * pieChart.green.percent / 100
+              + ' '
+              + halfCircumference)
+        .style('transform-origin', '50% 50%')
+        .style('transform', 'rotate(' + degreesDrawn + 'deg)');
 
-    // 360deg, i.e. a full circle, drawn
-    degreesDrawn += 360 * pieChart.green.percent / 100;
+      // 360deg, i.e. a full circle, drawn
+      degreesDrawn += 360 * pieChart.green.percent / 100;
 
 h3
   ' Notes
@@ -269,105 +273,107 @@ p
 h3
   ' The Data
 
-= code('json') do
-  |
-    {
-      "nodes": [
-        {
-          "id": "a", "group": 1,
-          "pieChart": [
-            { "color": 1, "percent": 40 },
-            { "color": 2, "percent": 20 },
-            { "color": 3, "percent": 20 },
-            { "color": 4, "percent": 20 }
-          ]
-        },
-        {
-          "id": "b", "group": 2,
-          "pieChart": [
-            { "color": 1, "percent": 33.33 },
-            { "color": 2, "percent": 33.34 },
-            { "color": 3, "percent": 33.33 }
-          ]
-        },
-        {
-          "id": "c", "group": 3,
-          "pieChart": [
-            { "color": 1, "percent": 25 },
-            { "color": 2, "percent": 25 },
-            { "color": 3, "percent": 25 },
-            { "color": 4, "percent": 25 }
-          ]
-        },
-        {
-          "id": "d", "group": 4,
-          "pieChart": [
-            { "color": 1, "percent": 33.33 },
-            { "color": 3, "percent": 33.33 },
-            { "color": 4, "percent": 33.34 }
-          ]
-        },
-        {
-          "id": "e", "group": 1,
-          "pieChart": [
-            { "color": 1, "percent": 100 }
-          ]
-        },
-        {
-          "id": "f", "group": 1,
-          "pieChart": [
-            { "color": 1, "percent": 100 }
-          ]
-        },
-        {
-          "id": "g", "group": 2,
-          "pieChart": [
-            { "color": 2, "percent": 50 },
-            { "color": 3, "percent": 50 }
-          ]
-        },
-        {
-          "id": "h", "group": 3,
-          "pieChart": [
-            { "color": 2, "percent": 50 },
-            { "color": 3, "percent": 50 }
-          ]
-        },
-        {
-          "id": "i", "group": 4,
-          "pieChart": [
-            { "color": 4, "percent": 100 }
-          ]
-        }
-      ],
-      "links": [
-        { "source": "a", "target": "b", "value": 5 },
-        { "source": "a", "target": "c", "value": 5 },
-        { "source": "a", "target": "d", "value": 5 },
-        { "source": "a", "target": "e", "value": 5 },
-        { "source": "a", "target": "f", "value": 5 },
-        { "source": "b", "target": "c", "value": 5 },
-        { "source": "b", "target": "g", "value": 5 },
-        { "source": "c", "target": "d", "value": 5 },
-        { "source": "c", "target": "h", "value": 5 },
-        { "source": "d", "target": "i", "value": 5 },
-        { "source": "e", "target": "f", "value": 5 },
-        { "source": "h", "target": "g", "value": 5 }
-      ]
-    }
+div class="code-snippet-wrapper"
+  = code('json') do
+    |
+      {
+        "nodes": [
+          {
+            "id": "a", "group": 1,
+            "pieChart": [
+              { "color": 1, "percent": 40 },
+              { "color": 2, "percent": 20 },
+              { "color": 3, "percent": 20 },
+              { "color": 4, "percent": 20 }
+            ]
+          },
+          {
+            "id": "b", "group": 2,
+            "pieChart": [
+              { "color": 1, "percent": 33.33 },
+              { "color": 2, "percent": 33.34 },
+              { "color": 3, "percent": 33.33 }
+            ]
+          },
+          {
+            "id": "c", "group": 3,
+            "pieChart": [
+              { "color": 1, "percent": 25 },
+              { "color": 2, "percent": 25 },
+              { "color": 3, "percent": 25 },
+              { "color": 4, "percent": 25 }
+            ]
+          },
+          {
+            "id": "d", "group": 4,
+            "pieChart": [
+              { "color": 1, "percent": 33.33 },
+              { "color": 3, "percent": 33.33 },
+              { "color": 4, "percent": 33.34 }
+            ]
+          },
+          {
+            "id": "e", "group": 1,
+            "pieChart": [
+              { "color": 1, "percent": 100 }
+            ]
+          },
+          {
+            "id": "f", "group": 1,
+            "pieChart": [
+              { "color": 1, "percent": 100 }
+            ]
+          },
+          {
+            "id": "g", "group": 2,
+            "pieChart": [
+              { "color": 2, "percent": 50 },
+              { "color": 3, "percent": 50 }
+            ]
+          },
+          {
+            "id": "h", "group": 3,
+            "pieChart": [
+              { "color": 2, "percent": 50 },
+              { "color": 3, "percent": 50 }
+            ]
+          },
+          {
+            "id": "i", "group": 4,
+            "pieChart": [
+              { "color": 4, "percent": 100 }
+            ]
+          }
+        ],
+        "links": [
+          { "source": "a", "target": "b", "value": 5 },
+          { "source": "a", "target": "c", "value": 5 },
+          { "source": "a", "target": "d", "value": 5 },
+          { "source": "a", "target": "e", "value": 5 },
+          { "source": "a", "target": "f", "value": 5 },
+          { "source": "b", "target": "c", "value": 5 },
+          { "source": "b", "target": "g", "value": 5 },
+          { "source": "c", "target": "d", "value": 5 },
+          { "source": "c", "target": "h", "value": 5 },
+          { "source": "d", "target": "i", "value": 5 },
+          { "source": "e", "target": "f", "value": 5 },
+          { "source": "h", "target": "g", "value": 5 }
+        ]
+      }
 
 p
   ' Notice that the details of the pie charts to be drawn on each node, are explicitly defined in the input data.
 
-= code('json') do
-  |
-    {
-      "pieChart": [
-        { "color": 1, "percent": 33.33 },
-        { "color": 2, "percent": 33.34 },
-        { "color": 3, "percent": 33.33 }
-      ]
-    }
+div class="code-snippet-wrapper"
+  = code('json') do
+    |
+      {
+        "pieChart": [
+          { "color": 1, "percent": 33.33 },
+          { "color": 2, "percent": 33.34 },
+          { "color": 3, "percent": 33.33 }
+        ]
+      }
 
 p
   ' The color property could be an RGB value or a CSS color name,
@@ -399,12 +405,13 @@ p
   ' , to modify it.
 
 
-= code('javascript') do
-  |
-    node.each(function (d) {
-      var nodeElement = d3.select(this);
-      /* Draw node pie for each node element */
-    });
+div class="code-snippet-wrapper"
+  = code('javascript') do
+    |
+      node.each(function (d) {
+        var nodeElement = d3.select(this);
+        /* Draw node pie for each node element */
+      });
 
 p
   ' The pie chart drawing logic is located in a separated file,

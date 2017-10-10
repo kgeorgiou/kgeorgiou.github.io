@@ -156,3 +156,11 @@ blockquote {
   font-style: italic;
   margin: 0;
 }
+
+.code-snippet-wrapper {
+	width: calc(50vw + 50% - 8px);
+    position: relative;
+    left: calc(-50vw + 50%);
+    padding: 1px 0 1px calc(50vw - 50%);
+    background-color: #1b1d1e;
+}
