@@ -1,7 +1,17 @@
 <%= Rouge::Themes::ThankfulEyes.render(:scope => '.highlight') %>
 
 .highlight {
-	padding: 16px;
+	padding: 4px 16px;
 	background-color: #282c34;
 	border-radius: 10px;
+}
+
+p > code {
+	background: #eee;
+	color: darkred;
+	padding: 2px 4px;
+	border-radius: 4px;
+	font-weight: 600;
+	font-size: 90%;
+	border: 1px solid #ddd;
 }
