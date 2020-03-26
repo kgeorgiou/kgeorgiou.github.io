@@ -64,6 +64,6 @@ It may just be a round piece of wood for some, but for us it's the first tangibl
 
 ### Post Scriptum
 
-Tyler Nighswander of [Plaid Parliament of Pwning](https://pwning.ne) (Carnegie Mellon's hacking team) explains all of the above in detail in his talk at USENIX Enigma 2016:
+Tyler Nighswander of [Plaid Parliament of Pwning](https://pwning.net) (Carnegie Mellon's hacking team) explains all of the above in detail in his talk at USENIX Enigma 2016:
 
 <iframe width="590" height="315" src="https://www.youtube.com/embed/-r-B1uOj0W4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
