@@ -140,4 +140,4 @@ DEPENDENCIES
   sprockets (>= 2.12.5)
 
 BUNDLED WITH
-   1.17.1
+   2.1.2

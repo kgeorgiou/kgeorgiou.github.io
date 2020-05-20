@@ -1,5 +1,5 @@
 ---
-title: 'SEC: Capturing digital flags'
+title: 'Capturing digital flags'
 published: true
 date: 2019-09-30
 tags: security ctf infosec competition
