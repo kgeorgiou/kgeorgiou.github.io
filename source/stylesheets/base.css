@@ -31,7 +31,7 @@ header {
 }
 header h1 {
   font-size: 1.5em;
-  margin-top: 1em;
+  margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
 header h1 a {
@@ -48,6 +48,24 @@ header p.chasm {
   height: 0;
   border-bottom: 2px solid #dedede;
 }
+header .face {
+  outline: 0;
+  border: 0;
+  padding-bottom: 0;
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url(/images/0.jpeg);
+  background-position: 0 0;
+  background-size: cover;
+  -webkit-border-radius: 120px;
+  -moz-border-radius: 120px;
+  border-radius: 120px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  margin: 0 auto;
+}
 h1,
 h2 {
   font-weight: 700;
@@ -56,20 +74,20 @@ header h2 {
   color: #6d6d6d;
   font-size: 1em;
   font-weight: bold;
+  margin-top: 0;
 }
 header h2 a {
-  outline-style: none;
   text-decoration: none;
-  border-bottom: 1px solid #6d6d6d;
-}
-header h2 a:link {
-  color: #6d6d6d;
+  color: #0a98e2;
+  border-bottom: 1px solid #bce6fc;
 }
 header h2 a:visited {
-  color: #6d6d6d;
+  color: #0a98e2;
+  border-bottom: 1px solid #bce6fc;
+  text-decoration: none;
 }
 header h2 a:hover {
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid #0a98e2;
 }
 h1,
 h2,
