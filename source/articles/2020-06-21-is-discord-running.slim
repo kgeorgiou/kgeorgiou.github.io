@@ -1,0 +1,42 @@
+---
+title: 'Is Discord Running?'
+published: true
+date: 2020-06-21
+tags: discord fingerprinting websocket
+---
+
+p id="is-discord-running"
+  ' ...
+
+= code('javascript') do
+  |
+    var ws = new WebSocket('ws://127.0.0.1:6463')
+
+    ws.addEventListener('open', function(e) {
+      // YES
+    })
+
+    ws.addEventListener('error', function(e) {
+      // NO
+    })
+
+p
+  ' The 
+  a target="_blank" rel="noopener noreferrer" href="https://discord.com/" Discord
+  '  client
+  a target="_blank" rel="noopener noreferrer" href="https://discord.com/developers/docs/topics/rpc#connecting" exposes a local RPC server
+  '  on port 6643. 
+  
+p 
+  ' This allows a website to use the
+  a target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" WebSocket API
+  '  to detect which visitors have the Discord client running - or not.
+
+p
+  ' This short post was inspired by
+  a target="_blank" rel="noopener noreferrer" href="https://nullsweep.com/why-is-this-website-port-scanning-me" "Why is This Website Port Scanning me?"
+  '  - a blog post that calls out websites that port-scan their visitors for
+  a target="_blank" rel="noopener noreferrer" href="https://panopticlick.eff.org/about" fingerprinting
+  '  purposes.
+
+= partial "rnd-is-discord-running"

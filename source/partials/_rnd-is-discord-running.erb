@@ -1,0 +1,12 @@
+<link href="is-discord-running.css" rel="stylesheet" type="text/css"/>
+
+<script>
+   var el = document.getElementById('is-discord-running')
+   var ws = new WebSocket('ws://127.0.0.1:6463')
+   ws.addEventListener('open', function(e) {
+     el.innerHTML = 'YES'
+   })
+   ws.addEventListener('error', function(e) {
+     el.innerHTML = 'NO'
+   })
+</script>
