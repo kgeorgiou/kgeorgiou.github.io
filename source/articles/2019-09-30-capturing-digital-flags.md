@@ -56,7 +56,7 @@ I partake in CTF competitions, whenever my schedule permits, with the super brig
 
 This blog post was fuelled by my excitement when this item arrived in the mail, as a reward for us placing 23rd in Facebook's 2019 CTF.
 
-<img src="/articles/2019-09-30-capturing-digital-flags/coinfbctf2019.png" width="590" alt="Facebook CTF 2019 coin" />
+<img src="/capturing-digital-flags/coinfbctf2019.png" width="590" alt="Facebook CTF 2019 coin" />
 
 (Lemon, in lieu of banana, for scale.)
 
