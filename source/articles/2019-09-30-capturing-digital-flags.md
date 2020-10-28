@@ -52,7 +52,7 @@ But there are plenty of beginner friendly resources out there:
 
 ### Personal Note
 
-I partake in CTF competitions, whenever my schedule permits, with the super bright folks of [CYberMouflons](https://cybermouflons.com) by my side.
+I play in CTF competitions as a member of the [CYberMouflons](https://cybermouflons.com).
 
 This blog post was fuelled by my excitement when this item arrived in the mail, as a reward for us placing 23rd in Facebook's 2019 CTF.
 
