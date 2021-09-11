@@ -1,12 +1,26 @@
 <link href="is-discord-running.css" rel="stylesheet" type="text/css"/>
 
 <script>
-   var el = document.getElementById('is-discord-running')
-   var ws = new WebSocket('ws://127.0.0.1:6463')
-   ws.addEventListener('open', function(e) {
-     el.innerHTML = 'YES'
-   })
-   ws.addEventListener('error', function(e) {
-     el.innerHTML = 'NO'
-   })
+  var el = document.getElementById('is-discord-running');
+
+  var start = 6463;
+  var end = 6472;
+
+  Array.from({length: start - end + 1}, (_, i) => i + 1);
+
+  function check(port, endPort) {
+    var ws = new WebSocket('ws://127.0.0.1:' + port);
+    ws.addEventListener('open', function(e) {
+      el.innerHTML = 'YES';
+    });
+    ws.addEventListener('error', function(e) {
+      if (port === endPort) {
+        el.innerHTML = 'NO';
+        return;
+      }
+      check(port + 1, endPort);
+    });
+  }
+   
+  check(6463, 6472);
 </script>

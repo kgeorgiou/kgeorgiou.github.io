@@ -10,15 +10,15 @@ p id="is-discord-running"
 
 = code('javascript') do
   |
-    var ws = new WebSocket('ws://127.0.0.1:6463')
+    var ws = new WebSocket('ws://127.0.0.1:6463');
 
     ws.addEventListener('open', function(e) {
       // YES
-    })
+    });
 
     ws.addEventListener('error', function(e) {
       // NO
-    })
+    });
 
 p
   ' The 
@@ -28,7 +28,7 @@ p
   '  on port 6463. 
   
 p 
-  ' This allows a website to use the
+  ' This allows websites to use the
   a target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" WebSocket API
   '  to detect which visitors have the Discord client running - or not.
 
@@ -38,5 +38,10 @@ p
   '  - a blog post that calls out websites that port-scan their visitors for
   a target="_blank" rel="noopener noreferrer" href="https://panopticlick.eff.org/about" fingerprinting
   '  purposes.
+
+p
+  ' Correction: Discord will try to bind to a port in the range of 
+  a target="_blank" rel="noopener noreferrer" href="https://discord.com/developers/docs/topics/rpc#rpc-server-ports" [6463,6472]
+  ' .
 
 = partial "rnd-is-discord-running"
