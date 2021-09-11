@@ -16,7 +16,7 @@ body {
 }
 .container {
   max-width: 590px;
-  margin: 32px auto;
+  margin: 48px auto;
   position: relative;
 }
 @media (max-width: 40em) {
@@ -42,7 +42,7 @@ header p.chasm {
   display: block;
   width: 66px;
   position: relative;
-  margin: 28px auto;
+  margin: 32px auto;
   height: 0;
   border-bottom: 2px solid #dedede;
 }
