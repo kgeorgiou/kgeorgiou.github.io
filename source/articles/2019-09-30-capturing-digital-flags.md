@@ -45,10 +45,10 @@ Personally my first interaction with solving CTF style puzzles was [HackThisSite
 
 But there are plenty of beginner friendly resources out there:
 
-[Natas Wargames](https://overthewire.org/wargames/natas/) - Natas teaches the basics of serverside web-security  
-[PicoCTF](https://picoctf.com) - CMU Cybersecurity Competition  
-[Cryptopals](https://cryptopals.com) - A collection of 48 exercises that demonstrate attacks on real-world crypto  
-[CyberChef](https://gchq.github.io/CyberChef) - The Cyber Swiss Army Knife
+- [Natas Wargames](https://overthewire.org/wargames/natas/) - Natas teaches the basics of serverside web-security
+- [PicoCTF](https://picoctf.com) - CMU Cybersecurity Competition
+- [Cryptopals](https://cryptopals.com) - 48 exercises on real-world crypto attacks
+- [CyberChef](https://gchq.github.io/CyberChef) - The Cyber Swiss Army Knife
 
 ### Personal Note
 

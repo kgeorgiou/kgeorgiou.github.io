@@ -6,10 +6,10 @@ html {
   margin: 0;
   padding: 0;
   background: #fff;
-  color: #4d4d4d;
+  color: black;
 }
 body {
-  font-family: 'Domine', 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Domine', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   line-height: 1.5em;
@@ -28,7 +28,7 @@ header {
   text-align: center;
 }
 header h1 {
-  font-size: 1.5em;
+  font-size: 2em;
   margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
@@ -47,12 +47,14 @@ header p.chasm {
   border-bottom: 2px solid #dedede;
 }
 h1,
-h2 {
+h2,
+h3 {
+  font-family: 'Domine', 'Open Sans', sans-serif;
   font-weight: bold;
 }
 header h2 {
   color: #6d6d6d;
-  font-size: 1em;
+  font-size: 1.25em;
   font-weight: bold;
   margin-top: 0;
 }
@@ -78,17 +80,18 @@ h5 {
   font-weight: bold;
 }
 article h1 {
-  margin: 0;
-  color: #333;
+  margin: 8px 0;
+  line-height: normal;
+  color: black;
 }
 article h2 {
   margin: 0 0 1em 0;
-  color: #333;
+  color: black;
   padding: 0;
 }
 article h2 a {
   font-weight: bold;
-  color: #333;
+  color: black;
   border: none;
 }
 article h2 a:hover {
@@ -98,16 +101,17 @@ article h2 a:hover {
 article p,
 ol {
   line-height: 1.8em;
-  font-weight: bold;
 }
 article a {
   font-weight: normal;
   text-decoration: none;
   color: #0a98e2;
-  border-bottom: 1px solid #bce6fc;
 }
 article a:hover {
   border-bottom: 1px solid #0a98e2;
+}
+article li {
+  margin-bottom: 12px;
 }
 article time {
   color: #6d6d6d;
@@ -124,7 +128,7 @@ blockquote {
   margin-top: 1.25em;
   margin-bottom: 1.25em;
   font-style: italic;
-  margin: 0;
+  margin: 8px 0;
   background: #f1f1f1;
   padding: 8px 24px;
 }
