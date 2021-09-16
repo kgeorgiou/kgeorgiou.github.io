@@ -7,9 +7,9 @@ tags: visualization d3 force directed graph pie chart
 
 p
   ' TL;DR &amp; Code:
-  a href="//bl.ocks.org/kgeorgiou/68f864364f277720252d0329408433ae" target="_blank" Sneaking pie charts in graph vertices.
+  a href="//bl.ocks.org/kgeorgiou/68f864364f277690252d0329408433ae" target="_blank" Sneaking pie charts in graph vertices.
 
-svg class="d3-container" width="590" height="420"
+svg class="d3-container" width="690" height="420"
 
 p
   ' The visualization above is based on the
@@ -38,13 +38,13 @@ p
   ' For a pie chart consisting of 3 equal sized segments, we overlay 3 circle elements. Then, we insert the pie chart on top of the original
   ' node element, to form a "node pie", as demonstrated below:
 
-svg width="590" height="100"
+svg width="690" height="100"
   circle id="parent-node" cx="50%" cy="50%" r="50" fill="#FBB33C"
   circle id="green-segment" class="fill-green" cx="50%" cy="50%" r="20" fill="transparent" stroke="#2bd07c" stroke-width="40" stroke-dasharray="125.6638, 251.328"
   circle id="pink-segment" class="fill-pink" cx="50%" cy="50%" r="20" fill="transparent" stroke="#f13379" stroke-width="40" stroke-dasharray="83.78, 251.328"
   circle id="blue-segment" class="fill-blue" cx="50%" cy="50%" r="20" fill="transparent" stroke="#2282c2" stroke-width="40" stroke-dasharray="41.8838, 251.328"
 
-svg width="590" height="100"
+svg width="690" height="100"
   circle id="green-segment" cx="25%" cy="50%" r="20" fill="transparent" stroke="#2bd07c" stroke-width="40" stroke-dasharray="125.6638, 251.328"
   circle id="pink-segment" cx="50%" cy="50%" r="20" fill="transparent" stroke="#f13379" stroke-width="40" stroke-dasharray="83.78, 251.328"
   circle id="blue-segment" cx="75%" cy="50%" r="20" fill="transparent" stroke="#2282c2" stroke-width="40" stroke-dasharray="41.8838, 251.328"
@@ -73,7 +73,7 @@ p
   ' HTML
 = code('html') do
   |
-    <svg width="590" height="100">
+    <svg width="690" height="100">
       <circle id="green-segment"/>
       <circle id="pink-segment"/>
       <circle id="blue-segment"/>
@@ -141,13 +141,13 @@ p
   ' A different approach is to paint exactly the desired percentage for each segment, and
   ' then rotate the segment by some calculated degrees.
 
-svg width="590" height="100"
+svg width="690" height="100"
   circle id="parent-node" cx="50%" cy="50%" r="50" fill="#FBB33C"
   circle id="blue-segment" class="rotate-blue" cx="50%" cy="50%" r="20" fill="transparent" stroke="#2282c2" stroke-width="40" stroke-dasharray="0, 251.328"
   circle id="pink-segment" class="rotate-pink" cx="50%" cy="50%" r="20" fill="transparent" stroke="#f13379" stroke-width="40" stroke-dasharray="0, 251.328"
   circle id="green-segment" class="rotate-green" cx="50%" cy="50%" r="20" fill="transparent" stroke="#2bd07c" stroke-width="40" stroke-dasharray="0, 251.328"
 
-svg width="590" height="100"
+svg width="690" height="100"
   circle id="blue-segment" cx="75%" cy="50%" r="20" fill="transparent" stroke="#2282c2" stroke-width="40" stroke-dasharray="41.8838, 251.328" style="transform-origin: 75% 50%; transform: rotate(0eg)"
   circle id="pink-segment" cx="50%" cy="50%" r="20" fill="transparent" stroke="#f13379" stroke-width="40" stroke-dasharray="41.8838, 251.328" style="transform-origin: 50% 50%; transform: rotate(119.988deg)"
   circle id="green-segment" cx="25%" cy="50%" r="20" fill="transparent" stroke="#2bd07c" stroke-width="40" stroke-dasharray="41.8838, 251.328" style="transform-origin: 25% 50%; transform: rotate(240.012deg)"
@@ -156,7 +156,7 @@ p
   ' HTML
 = code('html') do
   |
-    <svg width="590" height="100">
+    <svg width="690" height="100">
         <circle id="blue-segment"/>
         <circle id="pink-segment"/>
         <circle id="green-segment"/>
@@ -406,12 +406,12 @@ p
 
 p
   ' The pie chart drawing logic is located in a separated file,
-  a href="//gist.github.com/kgeorgiou/68f864364f277720252d0329408433ae#file-node-pie-js" target="_blank" node-pie.js
+  a href="//gist.github.com/kgeorgiou/68f864364f277690252d0329408433ae#file-node-pie-js" target="_blank" node-pie.js
   ' .
 
 p
   ' You can see the full source code and how it looks
-  a href="//bl.ocks.org/kgeorgiou/68f864364f277720252d0329408433ae" target="_blank" here
+  a href="//bl.ocks.org/kgeorgiou/68f864364f277690252d0329408433ae" target="_blank" here
   ' .
 
 = partial "vis-node-pies"

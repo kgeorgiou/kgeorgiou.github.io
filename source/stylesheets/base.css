@@ -9,13 +9,14 @@ html {
   color: black;
 }
 body {
-  font-family: 'Open Sans', 'Domine', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  line-height: 1.5em;
+  line-height: 2rem;
+  font-size: 1.15rem;
 }
 .container {
-  max-width: 590px;
+  max-width: 690px;
   margin: 48px auto;
   position: relative;
 }
@@ -26,6 +27,7 @@ body {
 }
 header {
   text-align: center;
+  font-family: 'Domine', serif;
 }
 header h1 {
   font-size: 2em;
@@ -49,7 +51,6 @@ header p.chasm {
 h1,
 h2,
 h3 {
-  font-family: 'Domine', 'Open Sans', sans-serif;
   font-weight: bold;
 }
 header h2 {
@@ -69,7 +70,7 @@ header h2 a:visited {
   text-decoration: none;
 }
 header h2 a:hover {
-  border-bottom: 1px solid #0a98e2;
+  border-bottom: 1px solid #bce6fc;
 }
 h1,
 h2,
@@ -80,7 +81,7 @@ h5 {
   font-weight: bold;
 }
 article h1 {
-  margin: 8px 0;
+  margin: 4px 0;
   line-height: normal;
   color: black;
 }
@@ -108,7 +109,7 @@ article a {
   color: #0a98e2;
 }
 article a:hover {
-  border-bottom: 1px solid #0a98e2;
+  border-bottom: 1px solid #bce6fc;
 }
 article li {
   margin-bottom: 12px;

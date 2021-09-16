@@ -5,7 +5,7 @@ date: 2019-09-30
 tags: security ctf infosec competition
 ---
 
-<iframe width="590" height="315" src="https://www.youtube.com/embed/2xZZJjRWlas" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="margin-top: 16px" allowfullscreen></iframe>
+<iframe width="690" height="315" src="https://www.youtube.com/embed/2xZZJjRWlas" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="margin-top: 16px" allowfullscreen></iframe>
 
 ### What?
 
@@ -56,7 +56,7 @@ I play in CTF competitions as a member of the [CYberMouflons](https://cybermoufl
 
 This blog post was fuelled by my excitement when this item arrived in the mail, as a reward for us placing 23rd in Facebook's 2019 CTF.
 
-<img src="/capturing-digital-flags/coinfbctf2019.png" width="590" alt="Facebook CTF 2019 coin" />
+<img src="/capturing-digital-flags/coinfbctf2019.png" width="690" alt="Facebook CTF 2019 coin" />
 
 (Lemon, in lieu of banana, for scale.)
 
@@ -66,4 +66,4 @@ It may just be a round piece of wood for some, but for us it's the first tangibl
 
 Tyler Nighswander of [Plaid Parliament of Pwning](https://pwning.net) (Carnegie Mellon's hacking team) explains all of the above in detail in his talk at USENIX Enigma 2016:
 
-<iframe width="590" height="315" src="https://www.youtube.com/embed/-r-B1uOj0W4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="690" height="315" src="https://www.youtube.com/embed/-r-B1uOj0W4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
