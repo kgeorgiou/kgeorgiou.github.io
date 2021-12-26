@@ -8,7 +8,10 @@
   <meta name="author" content="Kyriakos">
   <meta name="description" content="web, data & mana potions">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-  <title><%= current_page.data.title || "<Κυριάκος/>" %></title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <title><%= current_page.data.title || "Κυριάκος | Blog" %></title>
   <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
   <%= stylesheet_link_tag "normalize", "all" %>
   <%= javascript_include_tag  "all" %>
@@ -23,7 +26,7 @@
 
   <div class="container">
     <header>
-      <h1><a href="/">&lt;KYRIAKOS/&gt;</a></h1>
+      <h1><a href="/">KYRIAKOS</a></h1>
       <h2>{ Software | Security }</h2>
       <p class="chasm">&nbsp;</p>
     </header>
