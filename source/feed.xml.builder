@@ -1,6 +1,6 @@
 xml.instruct!
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
-  site_url = "http://kg.gg/"
+  site_url = "https://kyriakos.dev/"
   xml.title "Kyriakos Georgiou"
   xml.subtitle "Blog"
   xml.id URI.join(site_url, blog.options.prefix.to_s)
