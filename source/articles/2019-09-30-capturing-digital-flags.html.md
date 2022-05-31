@@ -1,7 +1,6 @@
 ---
 title: 'Capturing Digital Flags'
 published: true
-date: 2019-09-30
 tags: security ctf infosec competition
 ---
 

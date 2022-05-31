@@ -5,7 +5,9 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/plottable.js/1.6.1/plottable.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="//drive.google.com/uc?export=download&id=0B5_fdNvcqqKgd285d2FaZjRacnM"></script>
+
+<%= javascript_include_tag 'vis-fpl.js' %>
+
 <script>
     function drawGraphs() {
         var result = JSON.parse(fplos15);

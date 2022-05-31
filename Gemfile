@@ -1,13 +1,10 @@
-# If you have OpenSSL installed, we recommend updating
-# the following line to use "https"
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem "middleman", "~> 3.3.12"
-gem "middleman-blog", "~> 3.5.3"
+gem "middleman"
+gem "middleman-blog"
 gem "redcarpet"
-gem "slim"
+gem "slim", "~> 4.0.1"
 gem "middleman-syntax"
-gem "middleman-gh-pages"
-gem "sprockets", ">= 2.12.5"
+gem "middleman-sprockets", "~> 4.0.0.rc"
 # For feed.xml.builder
 gem "builder", "~> 3.0"
